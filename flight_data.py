@@ -22,7 +22,8 @@ class FlightData:
                 "fly_to": code,
                 "curr": "USD",
                 "nights_in_dst_from": "4",
-                "nights_in_dst_to": "14"
+                "nights_in_dst_to": "14",
+                "flight_type": "round"
             }
 
             response = requests.get(url=flight_search_url, headers=tequila_header, params=tequila_parameters)

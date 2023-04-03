@@ -28,4 +28,5 @@ flight_data = FlightData()
 flight_data_get = flight_data.get_flights(TEQUILA_TOKEN, flight_search_post, TAKEOFF_LOCATION_CODE)
 
 notification_manager = NotificationManager()
-notification_sender = notification_manager.send_sms(cities, TWILIO_ACCT, TWILIO_TOKEN, flight_data_get)
+notification_sender = notification_manager.send_sms(cities, TWILIO_ACCT, TWILIO_TOKEN, flight_data_get, TWILIO_NUMBER,
+                                                    PERSONAL_NUMBER)
