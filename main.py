@@ -1,7 +1,7 @@
 from data_manager import DataManager
 from flight_data import FlightData
 from flight_search import FlightSearch
-from notification_manager import NotificationManager
+from notification_manager import send_sms
 import os
 
 SHEETY_TOKEN = os.environ.get('SHEETY_TOKEN')
@@ -27,6 +27,5 @@ flight_search_post = flight_search.sheet_api_push(SHEETY_TOKEN, TEQUILA_TOKEN, S
 flight_data = FlightData()
 flight_data_get = flight_data.get_flights(TEQUILA_TOKEN, flight_search_post, TAKEOFF_LOCATION_CODE)
 
-notification_manager = NotificationManager()
-notification_sender = notification_manager.send_sms(cities, TWILIO_ACCT, TWILIO_TOKEN, flight_data_get, TWILIO_NUMBER,
-                                                    PERSONAL_NUMBER)
+notification_sender = send_sms(cities, TWILIO_ACCT, TWILIO_TOKEN, flight_data_get, TWILIO_NUMBER,
+                               PERSONAL_NUMBER)

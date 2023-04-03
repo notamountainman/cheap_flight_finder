@@ -8,7 +8,7 @@ class DataManager:
         self.sheety_get_url = "https://api.sheety.co/"
         self.sheety_column = "/flightDeals/prices"
 
-    def sheety_api_get(self, token, sheety_sheet_id):
+    def sheety_api_get(self, token: str, sheety_sheet_id: str) -> dict:
         sheety_header = {
             "Authorization": f"Bearer {token}"
         }
