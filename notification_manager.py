@@ -2,7 +2,7 @@ from twilio.rest import Client
 
 
 def send_sms(destination_cities: list[tuple], twilio_acct: str, twilio_token: str, trips: list[tuple],
-             twilio_number: str, personal_number: str) -> str:
+             twilio_number: str, personal_number: str) -> None:
     for count, trip_data in enumerate(trips):
         if trip_data[0] <= destination_cities[count][1]:
             client = Client(twilio_acct, twilio_token)
@@ -14,4 +14,4 @@ def send_sms(destination_cities: list[tuple], twilio_acct: str, twilio_token: st
                 body=message_body,
                 to=personal_number
             )
-            return message.sid
+            print(message.sid)

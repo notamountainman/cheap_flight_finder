@@ -5,7 +5,7 @@ class FlightSearch:
     # This class is responsible for talking to the Flight Search API.
     def __init__(self):
         self.sheety_post_url = "https://api.sheety.co/"
-        self.sheety_column = "/flightDeals/prices/"
+        self.sheety_page = "/flightDeals/prices/"
         self.tequila_locations_url = "https://api.tequila.kiwi.com/locations/query/"
         self.city_codes = []
 
@@ -34,7 +34,7 @@ class FlightSearch:
                     "iataCode": city_iata
                 }
             }
-            sheety_post = requests.put(url=f"{self.sheety_post_url}{sheety_sheet_id}{self.sheety_column}{count + 2}",
+            sheety_post = requests.put(url=f"{self.sheety_post_url}{sheety_sheet_id}{self.sheety_page}{count + 2}",
                                        headers=sheety_header, json=body)
             sheety_post.raise_for_status()
             self.city_codes.append(city_iata)
